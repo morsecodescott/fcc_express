@@ -5,7 +5,7 @@ console.log("Hello World");
 app.get("/", getExpress);
 
 
-getExpress(req, res){
+function getExpress(req, res){
     res.send('Hello Express');
   }
 
