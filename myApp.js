@@ -7,14 +7,18 @@ publicPath = __dirname + "/public"
 
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
-app.get("/json", loadJson)
+app.get("/json", loadJson);
 
 
 
 function loadJson(req,res){
-  res.json({"message": "Hello json"});
+  jsonText = {"message": "Hello json"}
+  
+  if (process.env.MESSAGE_STYLE == "uppercase"){
+    jsonText.message = jsonText.message.toUpperCase();
+  }
+  res.json(jsonText)
 }
-
 
 
 function loadIndex(req, res){
