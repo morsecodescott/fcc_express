@@ -6,7 +6,7 @@ app.get("/", loadIndex);
 
 publicPath = __dirname + '/public'
 
-app.use(express.static(publicPath));
+app.use('/public',express.static(publicPath));
 
 
 
