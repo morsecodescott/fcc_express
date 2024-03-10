@@ -16,6 +16,7 @@ function loadJson(req,res){
   
   if (process.env.MESSAGE_STYLE == "uppercase"){
     jsonText.message = jsonText.message.toUpperCase();
+    console.log("uppercase");
   }
   
   res.json(jsonText);
