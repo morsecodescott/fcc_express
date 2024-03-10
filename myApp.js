@@ -19,6 +19,7 @@ function loadJson(req,res){
     console.log("uppercase");
     res.json(jsonText);
   }else{
+    console.log("lower case");
     res.json(jsonText);
   }
   
