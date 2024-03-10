@@ -14,12 +14,15 @@ app.get("/json", loadJson);
 function loadJson(req,res){
   jsonText = {"message": "Hello json"}
   
-  if (process.env.MESSAGE_STYLE == "uppercase"){
+  if (process.env.MESSAGE_STYLE === "uppercase"){
     jsonText.message = jsonText.message.toUpperCase();
     console.log("uppercase");
+    res.json(jsonText);
+  }else{
+    res.json(jsonText);
   }
   
-  res.json(jsonText);
+  
 }
 
 
