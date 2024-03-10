@@ -13,6 +13,7 @@ app.get("/json", loadJson);
 
 function loadJson(req,res){
   jsonText = {"message": "Hello json"}
+  console.log(process.env.MESSAGE_STYLE);
   
   if (process.env.MESSAGE_STYLE === "uppercase"){
     jsonText.message = jsonText.message.toUpperCase();
