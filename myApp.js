@@ -9,13 +9,13 @@ app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 
-
+MESSAGE_STYLE = "uppercase";
 
 function loadJson(req,res){
   jsonText = {"message": "Hello json"}
   console.log(process.env);
   
-  if (process.env.MESSAGE_STYLE === "uppercase"){
+  if (MESSAGE_STYLE === "uppercase"){
     jsonText.message = jsonText.message.toUpperCase();
     console.log("uppercase");
     res.json(jsonText);
