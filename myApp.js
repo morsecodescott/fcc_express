@@ -5,9 +5,22 @@ console.log("Hello World");
 absolutePath = __dirname + '/views/index.html'
 publicPath = __dirname + "/public"
 
+
+
+app.use("/",logger);
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
+
+
+
+
+function logger(req, res, next){
+  detailString = req.method+" "+req.path+" - "+req.ip
+  console.log(detailString);
+  next();
+}
+
 
 
 function loadJson(req,res){
