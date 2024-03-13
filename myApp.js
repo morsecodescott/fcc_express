@@ -11,6 +11,13 @@ app.use("/",logger);
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
+app.get("/:word/echo", echo);
+
+function echo(req,res){
+  echoJson = {"echo": req.params.word}
+  res.send(echoJson);
+
+
 app.get('/now',(req,res,next)=>{
   req.time = new Date().toString()
   next();
