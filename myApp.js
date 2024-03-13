@@ -10,6 +10,20 @@ app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 app.get("/:word/echo", echo);
+app.route("/name").get(getName);
+
+
+function getName(req,res) {
+  firstName = req.first
+  lastName = req.last
+  console.log(firstName+" "+lastName);
+}
+
+
+
+
+
+
 
 function echo(req,res){
   echoJson = {"echo": req.params.word}
