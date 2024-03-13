@@ -17,7 +17,7 @@ app.get('/now', getDate, jsonTime);
 function getDate(req,res,next){
   time = new Date().toString()
   console.log(time);
-  //next();
+  next();
 }
 
 function jsonTime(req,res){
