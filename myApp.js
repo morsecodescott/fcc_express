@@ -14,8 +14,8 @@ app.route("/name").get(getName);
 
 
 function getName(req,res) {
-  firstName = req.first
-  lastName = req.last
+  firstName = req.query.first
+  lastName = req.query.last
   console.log(firstName+" "+lastName);
 }
 
