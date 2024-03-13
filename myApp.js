@@ -11,10 +11,10 @@ app.use("/",logger);
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
-app.get('/now',function(req,res,next){
+app.get('/now',(req,res,next)=>{
   req.time = new Date().toString()
   next();
-},function(req,res){
+},(req,res)=>{
 
   formattedTime = {"time": req.time}
   res.send(formattedTime);
