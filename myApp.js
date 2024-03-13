@@ -11,6 +11,18 @@ app.use("/",logger);
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
+app.get('/now', getDate);
+
+
+function getDate(req,res,next){
+  time = new Date().toString()
+  console.log(time);
+  //next();
+}
+
+
+
+
 
 
 
@@ -20,8 +32,6 @@ function logger(req, res, next){
   console.log(detailString);
   next();
 }
-
-
 
 function loadJson(req,res){
   jsonText = {"message": "Hello json"}
