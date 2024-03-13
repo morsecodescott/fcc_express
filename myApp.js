@@ -16,6 +16,7 @@ app.get('/now',function(req,res,next){
   console.log(time);
   next();
 },function(req,res){
+  console.log(time)
   formattedTime = {"time": "test"}
   res.json(formattedTime);
 });
