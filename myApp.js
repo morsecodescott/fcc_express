@@ -12,13 +12,12 @@ app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 app.get('/now',function(req,res,next){
-  time = new Date().toString()
-  console.log(time);
+  req.time = new Date().toString()
   next();
 },function(req,res){
-  console.log(time)
-  formattedTime = {"time": time}
-  res.json(formattedTime);
+
+  formattedTime = {"time": req.time}
+  res.send(formattedTime);
 });
 
 
