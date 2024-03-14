@@ -17,6 +17,7 @@ function getName(req,res) {
   firstName = req.query.first
   lastName = req.query.last
   console.log(firstName+" "+lastName);
+  res.json = {"name": firstName+" "+lastName}
 }
 
 
