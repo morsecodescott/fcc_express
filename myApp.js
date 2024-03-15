@@ -14,8 +14,18 @@ app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 app.get("/:word/echo", echo);
-app.route("/name").get(getName);
+app.route("/name").get(getName).post(postName);
 app.use(urlencodedParser);
+
+
+function postName(req,res) {
+  firstName = req.body.first
+  lastName = req.body.last
+  console.log(firstName+" "+lastName);
+  res.json({"name": firstName+" "+lastName});
+}
+
+
 
 function getName(req,res) {
   firstName = req.query.first
