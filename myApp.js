@@ -1,6 +1,10 @@
 require('dotenv').config();
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
+
+let urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 console.log("Hello World");
 absolutePath = __dirname + '/views/index.html'
 publicPath = __dirname + "/public"
@@ -11,7 +15,7 @@ app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 app.get("/:word/echo", echo);
 app.route("/name").get(getName);
-
+app.use(urlencodedParser);
 
 function getName(req,res) {
   firstName = req.query.first
@@ -19,10 +23,6 @@ function getName(req,res) {
   console.log(firstName+" "+lastName);
   res.json({"name": firstName+" "+lastName});
 }
-
-
-
-
 
 
 
