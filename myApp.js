@@ -8,14 +8,14 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 console.log("Hello World");
 absolutePath = __dirname + '/views/index.html'
 publicPath = __dirname + "/public"
-
+app.use(urlencodedParser);
 app.use("/",logger);
 app.get("/", loadIndex);
 app.use("/public",express.static(publicPath));
 app.get("/json", loadJson);
 app.get("/:word/echo", echo);
 app.route("/name").get(getName).post(postName);
-app.use(urlencodedParser);
+
 
 
 function postName(req,res) {
